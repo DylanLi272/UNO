@@ -18,8 +18,8 @@ public class UNORunner extends JFrame implements MouseListener
 	private static final long serialVersionUID = -1268319310886136966L;
 	
 	private final BufferedImage[][] cards = new BufferedImage[5][15];
-	private final BufferedImage back = ImageIO.read(new File("Black15.png"));
-	private final BufferedImage uno = ImageIO.read(new File("uno.png"));
+	private final BufferedImage back = ImageIO.read(getClass().getResourceAsStream("Black15.png"));
+	private final BufferedImage uno = ImageIO.read(getClass().getResourceAsStream("uno.png"));
 	private final BufferedImage[] clockwise = new BufferedImage[2];
 	private final BufferedImage[] counterClockwise = new BufferedImage[2];
 	private JPanel contentPane;
@@ -41,16 +41,16 @@ public class UNORunner extends JFrame implements MouseListener
 		
 		for (int r = 0; r < 4; r++)
 			for (int c = 0; c < 13; c++)
-				cards[r][c] = ImageIO.read(new File(r+"-"+c+".png"));
+				cards[r][c] = ImageIO.read(getClass().getResourceAsStream(r+"-"+c+".png"));
 		for (int r = 0; r < 4; r++)
 			for (int c = 13; c < 15; c++)
-				cards[r][c] = ImageIO.read(new File("black"+c+".png"));
+				cards[r][c] = ImageIO.read(getClass().getResourceAsStream("black"+c+".png"));
 		for (int i = 13; i < 15; i++)
-			cards[4][i] = ImageIO.read(new File("black"+i+".png"));
+			cards[4][i] = ImageIO.read(getClass().getResourceAsStream("black"+i+".png"));
 		for (int i = 0; i < 2; i++)
 		{
-			clockwise[i] = ImageIO.read(new File("clockwise"+i+".png"));
-			counterClockwise[i] = ImageIO.read(new File("counterClockwise"+i+".png"));
+			clockwise[i] = ImageIO.read(getClass().getResourceAsStream("clockwise"+i+".png"));
+			counterClockwise[i] = ImageIO.read(getClass().getResourceAsStream("counterClockwise"+i+".png"));
 		}
 		
 		moves = new ArrayList<>();
